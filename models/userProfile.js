@@ -1,30 +1,30 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var userProfileSchema = new Schema({
-	user: { type: Schema.ObjectId, ref: 'UserSchema' }
-	picture: ,
-    currentStudent: Boolean,
-    course: []
-    	courseStart: Boolean
-    	courseEnd: ({ type: Date, })
+var UserProfileSchema = new Schema({
+	// User basic information
+	profileActive: { type: Boolean, default: true },
+	user: { type: Schema.Types.ObjectId, ref: 'User' },
+	picture: { type: Schema.Types.ObjectId, ref: 'UserPicture' },
+	headline: { type: String, maxlength: 120 },
+	elevatorPitch:  { type: String, maxlength: 300 },
+	goals: [{ type: Schema.Types.ObjectId, ref: 'Goals' }],
+	skills: [{ type: Schema.Types.ObjectId, ref: 'Skills' }],
 
+	// Contact & location
+	portfolioURL: { type: String, lowercase: true },
+	linkedinURL: { type: String, lowercase: true },
+	email: { type: String, lowercase: true },
+	country: { type: Schema.Types.ObjectId, ref: 'Country' },
+	city: { type: Schema.Types.ObjectId, ref: 'City' },
 
-Picture
-Courses
-Github/Portfoilio
-LinkedIn
-Email
-One liner
-Elevator Pitch
-Location
-Goals
-Skills
-Password
-Admin?
-Active: Yes/no
+	// Courses
+	course: [{ 
+		courseName: { type: Schema.Types.ObjectId, ref: 'Course' }, 
+		courseStart: { type: Date, default: Date.now, min: Date('2012-01-01') }, 
+		courseEnd: { type: Date, default: Date.now, min: Date('2012-01-01') },
+		}]
+
 });
 
-var Customer = mongoose.model('Customer', customerSchema);
-
-module.exports = Customer;
+module.exports = mongoose.model('UserProfile', UserProfileSchema);
