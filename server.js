@@ -141,6 +141,11 @@ router.route('/users')
 
         var user = new User();      // create a new instance of the User model
         user.firstName = req.body.firstName;  // set the users name (comes from the request)
+        user.lastName = req.body.lastName;
+        user.email = req.body.email;
+        // Need bcrypt to hash password
+        user.password = req.body.password;
+        user.admin = req.body.admin; // Might need to be adjusted since this is boolean
 
         // save the user and check for errors
         user.save(function(err) {
