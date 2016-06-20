@@ -12,6 +12,9 @@ var morgan = require('morgan');
 var jwt = require('jsonwebtoken'); // use to create, sign, and verify tokens
 var config = require('./config'); // get our config file
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -37,7 +40,7 @@ router.post('/authenticate', function(req, res) {
 
   // find the user
   User.findOne({
-    name: req.body.email
+    email: req.body.email
   }, function(err, user) {
 
     if (err) throw err;
@@ -47,7 +50,7 @@ router.post('/authenticate', function(req, res) {
     } else if (user) {
 
       // check if password matches
-      if (user.password != req.body.pasword) {
+      if (user.password != req.body.password) {
         res.json({success: false, message: 'Authentication failed. Password is incorrect.' });
       } else {
 
@@ -113,9 +116,9 @@ router.get('/setup', function(req, res) {
 
   // create a sample user
   var nick = new User({
-    firstName: 'Bill',
+    firstName: 'Nick',
     lastName: 'Butcher',
-    email: 'bill@example.com',
+    email: 'nick@example.com',
     // This is obviously not the way to store passwords
     password: 'password',
     admin: false
@@ -144,16 +147,21 @@ router.route('/users')
         user.lastName = req.body.lastName;
         user.email = req.body.email;
         // Need bcrypt to hash password
-        user.password = req.body.password;
+        const password = req.body.password;
+        var hash = bcrypt.hashSync(password, saltRounds);
+        user.password = hash;
         user.admin = req.body.admin; // Might need to be adjusted since this is boolean
 
         // save the user and check for errors
         user.save(function(err) {
-            if (err)
-                res.send(err);
+            if (err) {
+              res.send(err);
+            } else {
 
             res.json({ message: 'User created!' });
-        });
+        };
+      });
+      console.log(user);
 
     })
 
