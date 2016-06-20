@@ -37,13 +37,13 @@ router.post('/authenticate', function(req, res) {
 
   // find the user
   User.findOne({
-    name: req.body.name
+    name: req.body.email
   }, function(err, user) {
 
     if (err) throw err;
 
     if (!user) {
-      res.json({success: false, message: 'Authentication failed. User not found.' });
+      res.json({success: false, message: 'Authentication failed. Email not found.' });
     } else if (user) {
 
       // check if password matches
@@ -113,9 +113,12 @@ router.get('/setup', function(req, res) {
 
   // create a sample user
   var nick = new User({
-    name: 'Bill',
+    firstName: 'Bill',
+    lastName: 'Butcher',
+    email: 'bill@example.com',
     // This is obviously not the way to store passwords
-    password: 'password'
+    password: 'password',
+    admin: false
   });
 
   // save the sample user
@@ -137,7 +140,7 @@ router.route('/users')
     .post(function(req, res) {
 
         var user = new User();      // create a new instance of the User model
-        user.name = req.body.name;  // set the users name (comes from the request)
+        user.firstName = req.body.firstName;  // set the users name (comes from the request)
 
         // save the user and check for errors
         user.save(function(err) {
