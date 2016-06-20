@@ -14,7 +14,6 @@ var UserProfileSchema = new Schema({
 	// Contact & location
 	portfolioURL: { type: String, lowercase: true },
 	linkedinURL: { type: String, lowercase: true },
-	email: { type: String, lowercase: true },
 	country: { type: Schema.Types.ObjectId, ref: 'Country' },
 	city: { type: Schema.Types.ObjectId, ref: 'City' },
 
