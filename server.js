@@ -189,7 +189,13 @@ router.route('/users')
 	             if (err)
 	                 res.send(err);
 
-	             user.name = req.body.name;  // update the users info
+	             // update the users info
+               user.firstName = req.body.firstName;  // set the users name (comes from the request)
+               user.lastName = req.body.lastName;
+               user.email = req.body.email;
+               // Need bcrypt to hash password
+               user.password = req.body.password;
+               user.admin = req.body.admin; // Might need to be adjusted since this is boolean
 
 	             // save the user
 	             user.save(function(err) {
