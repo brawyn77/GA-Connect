@@ -2,7 +2,7 @@
 
 Meet and collaborate with fellow General Assembly students on building startups, projects for your portfolio, or simply to networking.
 
-#### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](#current-challenges) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
+##### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](#current-challenges) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
 
 ![GA Connect Preview Screenshot](media/s.png)
 
@@ -94,7 +94,7 @@ Using user stories to flesh out the requirements for each persona.
 
 ## Contributors
 
-Brad Wynter | [Luke Phelan](https://github.com/lukephelan/) | [Stephen Koo](https://github.com/stephenkoo/)
+[Brad Wynter](https://github.com/brawyn77/) | [Luke Phelan](https://github.com/lukephelan/) | [Stephen Koo](https://github.com/stephenkoo/)
 
 - Credit to Brad for doing real customer development and talking to GA staff to identify their goals and needs.
 
