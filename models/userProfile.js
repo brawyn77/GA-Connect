@@ -8,7 +8,7 @@ var UserProfileSchema = new Schema({
 	picture: { type: Schema.Types.ObjectId, ref: 'UserPicture' },
 	headline: { type: String, maxlength: 120 },
 	elevatorPitch:  { type: String, maxlength: 300 },
-	goals: [{ type: Schema.Types.ObjectId, ref: 'Goals' }],
+	goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
 	skills: [{ type: Schema.Types.ObjectId, ref: 'Skills' }],
 
 	// Contact & location
