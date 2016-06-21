@@ -165,7 +165,7 @@ router.post('/login', ctrlAuth.login);
 
 // on routes that end in /users
 // ----------------------------------------------------
-router.route('/users')
+router.route('/users');
 
     // create a user (accessed at POST http://localhost:8080/api/users)
     // .post(function(req, res) {
@@ -205,10 +205,15 @@ router.route('/users')
 
 		// on routes that end in /users/:user_id
 		// ----------------------------------------------------
+<<<<<<< a1154b0166884201a685c9ce059ffdcf4110703c
 
 router.route('/users/:user_id')
 
 
+=======
+		router.route('/users/:user_id');
+		console.log("Test1");
+>>>>>>> fiddling
 		// get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
 		.get(auth, ctrlProfile.profileRead, function(req, res) {
 		    User.findById(req.params.user_id, function(err, user) {
@@ -260,7 +265,7 @@ router.route('/users/:user_id')
 
 			 // on routes that end in /userProfile/:user_id
 		 	// ----------------------------------------------------
-			router.route('/user/:user_id')
+			router.route('/user/:user_id/userProfile');
 
 					 // access userprofile data for user id
 					 .get(function(req, res) {

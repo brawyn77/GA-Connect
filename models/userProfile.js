@@ -6,7 +6,7 @@ var UserProfileSchema = new Schema({
 	_creator: {type: Number, ref: 'User'},
 	profileActive: { type: Boolean, default: true },
 	user: { type: Schema.Types.ObjectId, ref: 'User' },
-	picture: { type: Schema.Types.ObjectId, ref: 'UserPicture' },
+	picture: { type: Schema.Types.ObjectId, ref: 'User' },
 	headline: { type: String, maxlength: 120 },
 	elevatorPitch:  { type: String, maxlength: 300 },
 	goals: { type: String, maxlength: 300 },
