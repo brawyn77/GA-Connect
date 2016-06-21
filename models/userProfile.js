@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var UserProfileSchema = new Schema({
 	// User basic information
+	_creator: {type: Number, ref: 'User'},
 	profileActive: { type: Boolean, default: true },
 	user: { type: Schema.Types.ObjectId, ref: 'User' },
 	picture: { type: Schema.Types.ObjectId, ref: 'UserPicture' },
@@ -18,9 +19,9 @@ var UserProfileSchema = new Schema({
 	city: { type: Schema.Types.ObjectId, ref: 'City' },
 
 	// Courses
-	course: [{ 
-		courseName: { type: Schema.Types.ObjectId, ref: 'Course' }, 
-		courseStart: { type: Date, default: Date.now, min: Date('2012-01-01') }, 
+	course: [{
+		courseName: { type: Schema.Types.ObjectId, ref: 'Course' },
+		courseStart: { type: Date, default: Date.now, min: Date('2012-01-01') },
 		courseEnd: { type: Date, default: Date.now, min: Date('2012-01-01') },
 		}]
 

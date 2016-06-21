@@ -2,15 +2,17 @@ var mongoose     = require('mongoose');
 var crypto       = require('crypto');
 var jwt          = require('jsonwebtoken');
 var Schema       = mongoose.Schema;
+module.require('./userProfile.js');
 
 var UserSchema   = new Schema({
-    firstName: { type: String, uppercase: true },
+		_id: {type: Number},
+		firstName: { type: String, uppercase: true },
     lastName: { type: String, uppercase: true },
     email: { type: String, required: true, lowercase: true, unique: true },
-    password: { type: String, required: true },
     admin: Boolean,
     hash: String,
-    salt: String
+    salt: String,
+		userProfile: [{type: Schema.Types.ObjectId, ref: 'UserProfile' }]
 });
 
 UserSchema.methods.setPassword = function(password){

@@ -35,6 +35,8 @@ app.use(morgan('dev'));
 var User = require('./models/user'); //  get our Mongoose model
 require('./config/passport');
 
+var Userprofile = require('./models/userProfile');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test'); // connect to our database
 // app.set('superSecret', config.secret); // secret variable, might be redundant
@@ -253,7 +255,26 @@ router.route('/users')
 		       });
 		   });
 
+			 // on routes that end in /userProfile/:user_id
+		 	// ----------------------------------------------------
+			router.route('/userprofiles')
 
+					 // access userprofile data for user id
+					 .get(function(req, res) {
+							 UserProfile.find(function(err, users) {
+								 if (err)
+									 res.send(err);
+
+								 res.json(users);
+							 });
+
+							//  Userprofile.findById(req.params.user_id, function(err, user) {
+							// 	 console.log('Brad was here')
+							// 		 if (err)
+							// 				 res.send(err);
+							// 		 res.json(user);
+							//  });
+						});
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
