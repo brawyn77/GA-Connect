@@ -8,8 +8,9 @@ var express = require('express');        // call express
 var app = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+cors = require('cors');
 // var path = require('path'); // Not sure if we need this yet
-var jwt = require('jsonwebtoken'); // use to create, sign, and verify tokens
+// var jwt = require('jsonwebtoken'); // use to create, sign, and verify tokens
 var config = require('./config'); // get our config file
 var passport = require('passport');
 // var cookieParser = require('cookie-parser'); // Not sure if we need this here or on front end
@@ -20,7 +21,7 @@ var auth = jwt({
 });
 
 
-
+app.use(cors());
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -193,7 +194,7 @@ router.route('/users')
     // })
 
 		// get all the users (accessed at GET http://localhost:8080/api/users)
-		.get(auth, ctrlProfile.profileRead, function(req, res) {
+		.get(function(req, res) {
 		    User.find(function(err, users) {
 		      if (err)
 		        res.send(err);
@@ -204,8 +205,10 @@ router.route('/users')
 
 		// on routes that end in /users/:user_id
 		// ----------------------------------------------------
-		router.route('/users/:user_id')
-		console.log("Test1");
+
+router.route('/users/:user_id')
+
+
 		// get the user with that id (accessed at GET http://localhost:8080/api/users/:user_id)
 		.get(auth, ctrlProfile.profileRead, function(req, res) {
 		    User.findById(req.params.user_id, function(err, user) {
