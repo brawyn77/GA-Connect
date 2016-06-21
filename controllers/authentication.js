@@ -10,7 +10,7 @@ var sendJSONresponse = function(res, status, content) {
 module.exports.register = function(req, res) {
 
   // Might not need this bit
-  if(!req.body.name || !req.body.email || !req.body.password) {
+  if(!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password) {
     sendJSONresponse(res, 400, {
       "message": "All fields required"
     });
@@ -31,9 +31,15 @@ module.exports.register = function(req, res) {
     token = user.generateJwt();
     res.status(200);
     res.json({
+      "First Name" : user.firstName,
+      "Last Name" : user.lastName,
+      "Email" : user.email,
+      "Admin" : user.admin,
       "token" : token
     });
+    console.log(user);
   });
+  console.log(user);
 };
 
 module.exports.login = function(req, res) {
