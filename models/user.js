@@ -5,7 +5,6 @@ var Schema       = mongoose.Schema;
 module.require('./userProfile.js');
 
 var UserSchema   = new Schema({
-		_id: {type: Number},
 		firstName: { type: String, uppercase: true },
     lastName: { type: String, uppercase: true },
     email: { type: String, required: true, lowercase: true, unique: true },

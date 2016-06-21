@@ -1,0 +1,38 @@
+[
+   {
+      "_creator":0,
+      "profileActive":true,
+      "picture":"mypicture",
+      "headline":"Adam is awesome",
+      "elevatorPitch":"I am awesome",
+      "goals":"Win",
+      "skills":"Strong",
+      "portfolioURL":"website",
+      "linkedinURL":"website",
+      "country":"Australia",
+      "city": "Melbourne",
+      "course" : {
+         "courseName" : "WDI",
+         "courseStart":"2016-01-01",
+         "courseEnd":"2016-01-06"
+      }
+   },
+   {
+      "_creator":1,
+      "profileActive":true,
+      "picture":"myhead",
+      "headline":"Mark is awesome",
+      "elevatorPitch":"I am awesome",
+      "goals":"Job",
+      "skills":"Web",
+      "portfolioURL":"website",
+      "linkedinURL":"website",
+      "country":"Australia",
+      "city": "Sydney",
+      "course": {
+         "courseName":"WDI",
+         "courseStart":"2016-01-01",
+         "courseEnd":"2016-01-06"
+      }
+   }
+]
