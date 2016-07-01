@@ -1,4 +1,4 @@
 [
-    { _id: 0, firstName: "Adam", lastName: 'Applebee' ,  email: 'adam@gmail.com', hash: 'hash', salt: 'salt', userProfile: 0},
-    { _id: 1, firstName: "Mark", lastName: 'Mathias' ,  email: 'mark@gmail.com',  hash: 'hash', salt: 'salt', userProfile: 1}
+    { _id: 0, firstName: "Adam", lastName: "Applebee" ,  email: "adam@gmail.com", hash: "hash", salt: "salt", userProfile: 0},
+    { _id: 1, firstName: "Mark", lastName: "Mathias" ,  email: "mark@gmail.com",  hash: "hash", salt: "salt", userProfile: 1}
 ]

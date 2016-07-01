@@ -8,7 +8,7 @@ Meet and collaborate with fellow General Assembly students on building startups,
 
 ## Installation
 You can find GA Connect on [heroku.com/ga-connect](http://www.gooogle.com).
-If you'd like to install it locally, (explain how to install dependencies here.)
+If you"d like to install it locally, (explain how to install dependencies here.)
 
 ## Our Approach
 We first identified that a personal pain that we felt as GA students that we wanted to solve was the limited opportunities we had to collaborate and get to know other GA students, particular UX design students.
@@ -19,12 +19,12 @@ We then discussed potential technological solutions, and came up with the idea o
 ## Personas & user stories
 We created 3 personas to flesh out the specific needs for each type of user GA Connect is intended to serve.
 
-- **Mark the networker:** Mark is a Product Management student who just sarted building his startup. He'd like to network with other entrepreneurial GA students so they can share their journey together and provide each other helpful advice. 
-- **Bill the job hunter:** Bill is a Web Development Immersive student who has almost completed the course who wants to get a job as a junior web developer in the startup Orange Bubble. He'd like to continue meeting up with other WDI students after the course to work together on building their portfolios, on their CVs, practice interviews and keep each other accountable for attending networking events.
+- **Mark the networker:** Mark is a Product Management student who just sarted building his startup. He"d like to network with other entrepreneurial GA students so they can share their journey together and provide each other helpful advice. 
+- **Bill the job hunter:** Bill is a Web Development Immersive student who has almost completed the course who wants to get a job as a junior web developer in the startup Orange Bubble. He"d like to continue meeting up with other WDI students after the course to work together on building their portfolios, on their CVs, practice interviews and keep each other accountable for attending networking events.
 - **Adam the startup builder:** Adam is a Web Development Immersive student looking for one UX Design Immersive student and one Product Management student to build a startup together.
 - **Emily the administrator:** Emily is a GA administrator responsible for the management of students and classes. She wants to encourage GA students across courses to get to know each other better.
 
-Check out [GA Connect's user stories Trello](https://trello.com/b/youoepjC/).
+Check out [GA Connect"s user stories Trello](https://trello.com/b/youoepjC/).
 
 ## Wireframes
 Using user stories to flesh out the requirements for each persona.
