@@ -49,20 +49,6 @@ module.exports.removeUser = function(req, res){
 		});
 	};
 };
-		//
-		// module.exports.removeProfile = function(req, res){
-		//     if (!req.payload._id){
-		//         req.status(401).json({message: "Unauthorised user"});
-		//     } else {
-		//         UserProfile.remove({user: req.payload._id}, function(err){
-		//             if (err){
-		//                 res.json({message: "No profile found"});
-		//             } else {
-		//                 res.json({message: "Profile has been removed"});
-		//             };
-		//         });
-		//     };
-		// };
 
 module.exports.allUsers = function(req, res){
 	if (!req.payload._id){

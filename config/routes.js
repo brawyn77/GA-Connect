@@ -89,6 +89,20 @@ router.get('/profiles', auth, ctrlProfiles.allProfiles);
 router.get('/profiles/:id', auth, ctrlProfiles.oneProfile);
 
 
+// ===== SEARCH ROUTES
+
+// Search user profiles by skill
+router.get('/profiles/search/skills/:skill', auth, ctrlProfiles.searchSkills);
+
+router.get('/profiles/search/city/:city', auth, ctrlProfiles.searchCity);
+
+router.get('/profiles/search/goals/:goal', auth, ctrlProfiles.searchGoal);
+
+router.get('/profiles/search/course/:course', auth, ctrlProfiles.searchCourse);
+
+router.get('/profiles/search/multiple/:skill/:city/:goal/:course', auth, ctrlProfiles.searchMultiple);
+
+
 // No need to logout on the back end. Make it delete the token on the front end.
 router.post('/logout');
 

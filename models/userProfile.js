@@ -10,13 +10,13 @@ var UserProfileSchema = new Schema({
 	headline: { type: String, maxlength: 120 },
 	elevatorPitch:  { type: String, maxlength: 300 },
 	goals: { type: String, maxlength: 300 },
-	skills: { type: String, maxlength: 300 },
+	skills: [{ type: String, maxlength: 300, lowercase: true }],
 
 	// Contact & location
 	portfolioURL: { type: String, lowercase: true },
 	linkedinURL: { type: String, lowercase: true },
-	country: { type: String, maxlength: 30 },
-	city: { type: String, maxlength: 30 },
+	country: { type: String, maxlength: 30, lowercase: true },
+	city: { type: String, maxlength: 30, lowercase: true },
 
 	// Courses
 	course: [{

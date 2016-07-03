@@ -117,3 +117,88 @@ module.exports.oneProfile = function(req, res){
         });
     };
 };
+
+module.exports.searchSkills = function(req, res){
+    if (!req.payload._id){
+        res.status(401).json({message: "Unauthorised user"});
+    } else {
+        UserProfile.find({skills: req.params.skill}, function(err, foundUsers){
+            if (err){
+                res.json({message: errmsg});
+            } else if (foundUsers.length === 0){
+                res.json({message: "No profiles found"});
+            } else {
+                res.json(foundUsers);
+            };
+        });
+    };
+};
+
+module.exports.searchCity = function(req, res){
+    if (!req.payload._id){
+        res.status(401).json({message: "Unauthorised user"});
+    } else {
+        UserProfile.find({city: req.params.city}, function(err, foundUsers){
+            if (err){
+                res.json({message: errmsg});
+            } else if (foundUsers.length === 0){
+                res.json({message: "No profiles found"});
+            } else {
+                res.json(foundUsers);
+            };
+        });
+    };
+};
+
+module.exports.searchGoal = function(req, res){
+    if (!req.payload._id){
+        res.status(401).json({message: "Unauthorised user"});
+    } else {
+        UserProfile.find({goals: req.params.goal}, function(err, foundUsers){
+            if (err){
+                res.json({message: errmsg});
+            } else if (foundUsers.length === 0){
+                res.json({message: "No profiles found"});
+            } else {
+                res.json(foundUsers);
+            };
+        });
+    };
+};
+
+module.exports.searchCourse = function(req, res){
+    if (!req.payload._id){
+        res.status(401).json({message: "Unauthorised user"});
+    } else {
+        UserProfile.find({'course.courseName': req.params.course}, function(err, foundUsers){
+            if (err){
+                res.json({message: errmsg});
+            } else if (foundUsers.length === 0){
+                res.json({message: "No profiles found"});
+            } else {
+                res.json(foundUsers);
+            };
+        });
+    };
+};
+
+module.exports.searchMultiple = function(req, res){
+    if (!req.payload._id){
+        res.status(401).json({message: "Unauthorised user"});
+    } else {
+        UserProfile
+        .find({
+            skills: req.params.skill,
+            city: req.params.city,
+            goals: req.params.goal,
+            'course.courseName': req.params.course}, function(err, foundUsers){
+                if (err){
+                    res.json({message: errmsg});
+                } else if (foundUsers.length === 0){
+                    res.json({message: "No profiles found"});
+                } else {
+                    res.json(foundusers);
+            };
+        });
+    };
+};
