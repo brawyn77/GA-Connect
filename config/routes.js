@@ -284,7 +284,7 @@ router.post('/logout');
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use(passport.initialize());
+// app.use(passport.initialize());
 // app.use('/api', router);
 
 module.exports       = router;
