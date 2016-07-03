@@ -4,6 +4,7 @@ var UserProfile = mongoose.model("UserProfile");
 
 
 module.exports.createProfile = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         req.status(401).json({message: "Unauthorised user"});
     } else {
@@ -33,18 +34,22 @@ module.exports.createProfile = function(req, res){
 };
 
 module.exports.readProfile = function(req, res){
+    // Check for a user ID in the JWT
 	if (!req.payload._id){
 		req.status(401).json({message: "Unauthorised user"});
 	} else {
-        UserProfile.findOne({user: req.payload._id})
-        .exec(function(err, profile){
-            res.status(200).json(profile);
+        UserProfile.findOne({user: req.payload._id}, function(err, profile){
+            if (err){
+                res.json({message: "Profile not found"})
+            } else {
+                res.status(200).json(profile);
+            };
         });
-
 	};
 };
 
 module.exports.updateProfile = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         req.status(401).json({message: "Unauthorised user"});
     } else {
@@ -79,6 +84,7 @@ module.exports.updateProfile = function(req, res){
 };
 
 module.exports.removeProfile = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         req.status(401).json({message: "Unauthorised user"});
     } else {
@@ -94,31 +100,39 @@ module.exports.removeProfile = function(req, res){
 
 
 module.exports.allProfiles = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.find({})
-            .populate('user')
-            .exec(function(err, profiles){
+        UserProfile.find({}, function(err, profiles){
+            if (err){
+                res.json({message: "No profile found"});
+            } else {
                 res.status(200).json(profiles);
-            });
-        };
+            };
+        });
     };
+}
 
 module.exports.oneProfile = function(req, res){
-    var id = req.params.id;
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.findOne({user: id})
+        UserProfile.findOne({user: req.params.id})
         .populate('user')
         .exec(function(err, profile){
-            res.status(200).json(profile);
+            if (err){
+                res.json({message: "No profile found"});
+            } else {
+                res.status(200).json(profile);
+            };
         });
     };
 };
 
 module.exports.searchSkills = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
@@ -135,6 +149,7 @@ module.exports.searchSkills = function(req, res){
 };
 
 module.exports.searchCity = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
@@ -151,6 +166,7 @@ module.exports.searchCity = function(req, res){
 };
 
 module.exports.searchGoal = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
@@ -167,6 +183,7 @@ module.exports.searchGoal = function(req, res){
 };
 
 module.exports.searchCourse = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
@@ -183,6 +200,7 @@ module.exports.searchCourse = function(req, res){
 };
 
 module.exports.searchMultiple = function(req, res){
+    // Check for a user ID in the JWT
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {

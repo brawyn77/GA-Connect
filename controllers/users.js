@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var User = mongoose.model("User");
 
 module.exports.userRead = function(req, res){
-
+	// Check for a user ID in the JWT
 	if (!req.payload._id) {
 		res.status(401).json({message: "Unauthorised user"});
 	} else {
@@ -13,6 +13,7 @@ module.exports.userRead = function(req, res){
 };
 
 module.exports.updateUser = function(req, res){
+	// Check for a user ID in the JWT
 	if (!req.payload._id){
 		res.staus(401).json({message: "Unauthorised user"});
 	} else {
@@ -37,6 +38,7 @@ module.exports.updateUser = function(req, res){
 };
 
 module.exports.removeUser = function(req, res){
+	// Check for a user ID in the JWT
 	if (!req.payload._id){
 		res.status(401).json({message: "Unauthorised user"});
 	} else {
@@ -51,6 +53,7 @@ module.exports.removeUser = function(req, res){
 };
 
 module.exports.allUsers = function(req, res){
+	// Check for a user ID in the JWT
 	if (!req.payload._id){
 		res.status(401).json({
 			"message" : "UnauthorizedError: unauthorized user"
@@ -65,6 +68,7 @@ module.exports.allUsers = function(req, res){
 };
 
 module.exports.oneUser = function(req, res){
+	// Check for a user ID in the JWT
 	var id = req.params.id;
 	if(!req.payload._id){
 		res.status(401).json({
