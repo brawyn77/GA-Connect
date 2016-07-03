@@ -8,7 +8,7 @@ var UserSchema   = new Schema({
 	firstName: { type: String, uppercase: true },
 	lastName: { type: String, uppercase: true },
 	email: { type: String, required: true, lowercase: true, unique: true },
-	admin: Boolean,
+	admin: { type: Boolean, default: false },
 	hash: String,
 	salt: String,
 	userProfile: [{type: Schema.Types.ObjectId, ref: "UserProfile" }]
@@ -28,11 +28,12 @@ UserSchema.methods.generateJwt = function() {
 	var expiry = new Date();
 	expiry.setDate(expiry.getDate() + 7);
 
-	return jwt.sign({
+	var token = jwt.sign({
 		_id: this._id,
 		email: this.email,
 		exp: parseInt(expiry.getTime() / 1000)
-	}, "MY_SECRET"); // THIS SHOULD NOT BE KEPT IN THE CODE
+	}, "MY_SECRET"); // THIS SHOULD NOT BE KEPT IN THE CODE; MAKE IT AN ENVIRONMENTAL VARIABLE
+	return token;
 };
 
 module.exports = mongoose.model("User", UserSchema);

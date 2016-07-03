@@ -21,8 +21,8 @@ var UserProfileSchema = new Schema({
 	// Courses
 	course: [{
 		courseName: { type: String, maxlength: 50 },
-		courseStart: { type: Date, default: Date.now, min: Date("2016-01-01") },
-		courseEnd: { type: Date, default: Date.now, min: Date("2016-01-01") }
+		courseStart: { type: Date, default: Date.now },
+		courseEnd: { type: Date, default: Date.now }
 	}]
 
 });

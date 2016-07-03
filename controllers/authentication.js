@@ -8,24 +8,18 @@ var sendJSONresponse = function(res, status, content) {
 };
 
 module.exports.register = function(req, res) {
-
-  // Might not need this bit
 	if(!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password) {
 		sendJSONresponse(res, 400, {
 			"message": "All fields required"
 		});
 		return;
 	}
-
 	var user = new User();
-
-  // Probably need a lot more error validation here
 	user.firstName = req.body.firstName;
 	user.lastName = req.body.lastName;
 	user.email = req.body.email;
 	user.setPassword(req.body.password);
 	user.admin = req.body.admin;
-
 	user.save(function(err) {
 		var token;
 		token = user.generateJwt();
@@ -37,41 +31,33 @@ module.exports.register = function(req, res) {
 			"Admin" : user.admin,
 			"token" : token
 		});
-		console.log(user);
 	});
-	console.log(user);
+	// redirect to the update profile route
 };
 
 module.exports.login = function(req, res) {
-
-// Might not need this bit
 	if(!req.body.email || !req.body.password) {
 		sendJSONresponse(res, 400, {
 			"message": "All fields required"
 		});
 		return;
 	}
-
-	passport.authenticate("local", function(err, user, info){
-		var token;
-
+	passport.authenticate('local', function(err, user, info){
     // If Passport throws/catches an error
 		if (err) {
 			res.status(404).json(err);
 			return;
 		}
-
     // If a user is found
 		if(user){
-			token = user.generateJwt();
+			var token = user.generateJwt();
 			res.status(200);
 			res.json({
-				"token" : token
+				'token' : token
 			});
 		} else {
       // If user is not found
 			res.status(401).json(info);
 		}
 	})(req, res);
-
 };

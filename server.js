@@ -4,41 +4,50 @@
 // =============================================================================
 
 // call the packages we need
-var express = require("express"); // call express
-var app = express(); // define our app using express
-var bodyParser = require("body-parser");
-var morgan = require("morgan");
-var cors = require("cors");
-// var path = require("path"); // Not sure if we need this yet
-// var jwt = require("jsonwebtoken"); // use to create, sign, and verify tokens
-var config = require("./config"); // get our config file
-var dbs = require("./models/dbs");
+var express = require('express'); // call express
+var path = require('path');
+var morgan = require('morgan');
+var bodyParser = require('body-parser'); // utilise body parser
+var passport = require('passport');
+var cors = require('cors');
+var mongoose = require('mongoose');
 
-var routes = require("./config/routes");
-app.use("/api", routes);
+// Bring in the data models
+var User = require('./models/user'); //  get our User model
+var UserProfile = require('./models/userProfile'); // get our UserProfile model
 
-app.use(cors());
-
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
-
+var config = require('./config'); // get our config file
+var dbs = require('./models/dbs');
+var routes = require('./config/routes'); // link to the routes
+require("./config/passport");
 var port = process.env.PORT || 8080; // set our port
 
-// use morgan to log requests to the console
-app.use(morgan("dev"));
+var app = express(); // define our app using express
 
-var User = require("./models/user"); //  get our Mongoose model
-require("./config/passport");
-
-var UserProfile = require("./models/userProfile");
-
-var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/test"); // connect to our database
+mongoose.connect('mongodb://localhost/test'); // connect to our database
 // app.set("superSecret", config.secret); // secret variable, might be redundant
+
+app.use(morgan('dev')); // use morgan to log requests to the console
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use('/api', routes); // namespace our routes
+
+app.set('view engine', 'ejs');
+// app.use(methodOverride('_method')); // do we need this?
+app.set('views', path.join(__dirname, '/views'));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // START THE SERVER
