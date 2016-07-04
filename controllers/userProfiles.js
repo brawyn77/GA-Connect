@@ -128,7 +128,7 @@ module.exports.oneProfile = function(req, res){
     // if (!req.payload._id){
     //     res.status(401).json({message: "Unauthorised user"});
     // } else {
-        UserProfile.findOne({user: req.params.id})
+        UserProfile.findOne({_id: req.params.id})
         .populate('user')
         .exec(function(err, profile){
             if (err){
