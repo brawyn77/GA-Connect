@@ -104,7 +104,9 @@ module.exports.allProfiles = function(req, res){
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.find({}, function(err, profiles){
+        UserProfile.find({})
+        .populate('user')
+        .exec(function(err, profiles){
             if (err){
                 res.json({message: "No profile found"});
             } else {
@@ -136,7 +138,9 @@ module.exports.searchSkills = function(req, res){
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.find({skills: req.params.skill}, function(err, foundUsers){
+        UserProfile.find({skills: req.params.skill})
+        .populate('user')
+        .exec(function(err, foundUsers){
             if (err){
                 res.json({message: errmsg});
             } else if (foundUsers.length === 0){
@@ -153,7 +157,9 @@ module.exports.searchCity = function(req, res){
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.find({city: req.params.city}, function(err, foundUsers){
+        UserProfile.find({city: req.params.city})
+        .populate('user')
+        .exec(function(err, foundUsers){
             if (err){
                 res.json({message: errmsg});
             } else if (foundUsers.length === 0){
@@ -170,7 +176,9 @@ module.exports.searchGoal = function(req, res){
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.find({goals: req.params.goal}, function(err, foundUsers){
+        UserProfile.find({goals: req.params.goal})
+        .populate('user')
+        .exec(function(err, foundUsers){
             if (err){
                 res.json({message: errmsg});
             } else if (foundUsers.length === 0){
@@ -187,7 +195,9 @@ module.exports.searchCourse = function(req, res){
     if (!req.payload._id){
         res.status(401).json({message: "Unauthorised user"});
     } else {
-        UserProfile.find({'course.courseName': req.params.course}, function(err, foundUsers){
+        UserProfile.find({'course.courseName': req.params.course})
+        .populate('user')
+        .exec(function(err, foundUsers){
             if (err){
                 res.json({message: errmsg});
             } else if (foundUsers.length === 0){
@@ -209,7 +219,9 @@ module.exports.searchMultiple = function(req, res){
             skills: req.params.skill,
             city: req.params.city,
             goals: req.params.goal,
-            'course.courseName': req.params.course}, function(err, foundUsers){
+            'course.courseName': req.params.course
+        }).populate('user')
+        .exec(function(err, foundUsers){
                 if (err){
                     res.json({message: errmsg});
                 } else if (foundUsers.length === 0){
