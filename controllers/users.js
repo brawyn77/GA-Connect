@@ -54,31 +54,31 @@ module.exports.removeUser = function(req, res){
 
 module.exports.allUsers = function(req, res){
 	// Check for a user ID in the JWT
-	if (!req.payload._id){
-		res.status(401).json({
-			"message" : "UnauthorizedError: unauthorized user"
-		});
-	} else {
+	// if (!req.payload._id){
+	// 	res.status(401).json({
+	// 		"message" : "UnauthorizedError: unauthorized user"
+	// 	});
+	// } else {
 		User
 		.find({})
 		.exec(function(err, users){
 			res.status(200).json(users);
 		});
-	};
+	// };
 };
 
 module.exports.oneUser = function(req, res){
 	// Check for a user ID in the JWT
-	var id = req.params.id;
-	if(!req.payload._id){
-		res.status(401).json({
-			"message" : "UnauthorizedError: unauthorized user"
-		});
-	} else {
+	// var id = req.params.id;
+	// if(!req.payload._id){
+	// 	res.status(401).json({
+	// 		"message" : "UnauthorizedError: unauthorized user"
+	// 	});
+	// } else {
 		User
 		.findById({_id: id}, function(err, user){
 			if(err) res.json({message: 'Could not find user because: ' + err});
 			res.status(200).json({user: user});
 		});
-	};
+	// };
 };

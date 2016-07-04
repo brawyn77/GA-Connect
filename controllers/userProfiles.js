@@ -101,9 +101,9 @@ module.exports.removeProfile = function(req, res){
 
 module.exports.allProfiles = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile.find({})
         .populate('user')
         .exec(function(err, profiles){
@@ -113,14 +113,14 @@ module.exports.allProfiles = function(req, res){
                 res.status(200).json(profiles);
             };
         });
-    };
+    // };
 }
 
 module.exports.oneProfile = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile.findOne({user: req.params.id})
         .populate('user')
         .exec(function(err, profile){
@@ -130,14 +130,14 @@ module.exports.oneProfile = function(req, res){
                 res.status(200).json(profile);
             };
         });
-    };
+    // };
 };
 
 module.exports.searchSkills = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile.find({skills: req.params.skill})
         .populate('user')
         .exec(function(err, foundUsers){
@@ -149,14 +149,14 @@ module.exports.searchSkills = function(req, res){
                 res.json(foundUsers);
             };
         });
-    };
+    // };
 };
 
 module.exports.searchCity = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile.find({city: req.params.city})
         .populate('user')
         .exec(function(err, foundUsers){
@@ -168,14 +168,14 @@ module.exports.searchCity = function(req, res){
                 res.json(foundUsers);
             };
         });
-    };
+    // };
 };
 
 module.exports.searchGoal = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile.find({goals: req.params.goal})
         .populate('user')
         .exec(function(err, foundUsers){
@@ -187,14 +187,14 @@ module.exports.searchGoal = function(req, res){
                 res.json(foundUsers);
             };
         });
-    };
+    // };
 };
 
 module.exports.searchCourse = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile.find({'course.courseName': req.params.course})
         .populate('user')
         .exec(function(err, foundUsers){
@@ -206,14 +206,14 @@ module.exports.searchCourse = function(req, res){
                 res.json(foundUsers);
             };
         });
-    };
+    // };
 };
 
 module.exports.searchMultiple = function(req, res){
     // Check for a user ID in the JWT
-    if (!req.payload._id){
-        res.status(401).json({message: "Unauthorised user"});
-    } else {
+    // if (!req.payload._id){
+    //     res.status(401).json({message: "Unauthorised user"});
+    // } else {
         UserProfile
         .find({
             skills: req.params.skill,
@@ -230,5 +230,5 @@ module.exports.searchMultiple = function(req, res){
                     res.json(foundusers);
             };
         });
-    };
+    // };
 };

@@ -60,10 +60,10 @@ router.put('/user', auth, ctrlUsers.updateUser);
 router.delete('/user', auth, ctrlUsers.removeUser);
 
 // Display user details for all users
-router.get('/users', auth, ctrlUsers.allUsers);
+router.get('/users', ctrlUsers.allUsers);
 
 // Display user detail for one user
-router.get('/users/:id', auth, ctrlUsers.oneUser);
+router.get('/users/:id', ctrlUsers.oneUser);
 
 
 
@@ -83,24 +83,24 @@ router.put('/profile', auth, ctrlProfiles.updateProfile);
 router.delete('/profile', auth, ctrlProfiles.removeProfile);
 
 // Display profiles for all users
-router.get('/profiles', auth, ctrlProfiles.allProfiles);
+router.get('/profiles', ctrlProfiles.allProfiles);
 
 // Display just one profile for any user
-router.get('/profiles/:id', auth, ctrlProfiles.oneProfile);
+router.get('/profiles/:id', ctrlProfiles.oneProfile);
 
 
 // ===== SEARCH ROUTES
 
 // Search user profiles by skill
-router.get('/profiles/search/skills/:skill', auth, ctrlProfiles.searchSkills);
+router.get('/profiles/search/skills/:skill', ctrlProfiles.searchSkills);
 
-router.get('/profiles/search/city/:city', auth, ctrlProfiles.searchCity);
+router.get('/profiles/search/city/:city', ctrlProfiles.searchCity);
 
-router.get('/profiles/search/goals/:goal', auth, ctrlProfiles.searchGoal);
+router.get('/profiles/search/goals/:goal', ctrlProfiles.searchGoal);
 
-router.get('/profiles/search/course/:course', auth, ctrlProfiles.searchCourse);
+router.get('/profiles/search/course/:course', ctrlProfiles.searchCourse);
 
-router.get('/profiles/search/multiple/:skill/:city/:goal/:course', auth, ctrlProfiles.searchMultiple);
+router.get('/profiles/search/multiple/:skill/:city/:goal/:course', ctrlProfiles.searchMultiple);
 
 
 // No need to logout on the back end. Make it delete the token on the front end.
