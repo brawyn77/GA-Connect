@@ -24,6 +24,8 @@ var port = process.env.PORT || 8080; // set our port
 
 var app = express(); // define our app using express
 
+
+
 mongoose.connect('mongodb://localhost/test'); // connect to our database
 // app.set("superSecret", config.secret); // secret variable, might be redundant
 
@@ -39,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'api_client')))
 app.use(passport.initialize());
 
 app.use('/api', routes); // namespace our routes
+
 
 // app.use(methodOverride('_method')); // do we need this?
 

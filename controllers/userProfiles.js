@@ -2,6 +2,10 @@ var mongoose = require("mongoose");
 var User = mongoose.model("User");
 var UserProfile = mongoose.model("UserProfile");
 
+// User.findById(req.params.id)
+//   .populate('image') //populate
+//   .exec(function(err, user) {...})
+
 
 module.exports.createProfile = function(req, res){
     // Check for a user ID in the JWT
@@ -104,8 +108,11 @@ module.exports.allProfiles = function(req, res){
     // if (!req.payload._id){
     //     res.status(401).json({message: "Unauthorised user"});
     // } else {
+
+		var populateQuery = [{path:'../models/user', select:'user'}, {path:'./models/userProfile', select:'picture'}];
+
         UserProfile.find({})
-        .populate('user')
+        .populate(populateQuery)
         .exec(function(err, profiles){
             if (err){
                 res.json({message: "No profile found"});
