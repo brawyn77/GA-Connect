@@ -2,7 +2,7 @@
   "name": "ga-connect",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "~1.0.1",
     "cors": "^2.7.1",
@@ -21,7 +21,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "server.js"
   },
   "author": "",
   "license": "ISC"
