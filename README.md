@@ -7,8 +7,24 @@ Meet and collaborate with fellow General Assembly students on building startups,
 ##### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-and-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](# challenges-and-reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
 
 ## Installation
-You can find a working demo of GA Connect on [github](https://stephenkoo.github.io/GA-Connect-Front/public/index.html).
+You can find a working demo of GA Connect on [github](https://stephenkoo.github.io/GA-Connect-Front/public/index.html), and the repo also on [github](https://github.com/stephenkoo/GA-Connect-Front). The origin front-end repo can be found [here](https://github.com/stephenkoo/GA-Connect-Backbone), which is now redundant.
 The backend is hosted on [Heroku](https://historic-kings-canyon-91668.herokuapp.com/api).
+
+To install the back-end locally:
+
+1. Go to a directory on your terminal and type: git clone <add repository URL here>
+2. In your terminal type: npm install
+3. In the file server.js, change the Mongoose connection to a local MongoDB on your computer
+4. You can now utilise the API locally at http://localhost:8080, however there will be no data in your database
+5. Follow the instructions below to add users to your database
+6. If you deploy the API to Heroku, you will need to set-up your own mLab database and change the mongoose connection accordingly
+
+To install the front-end locally:
+
+1. Go to a directory on your terminal and type: git clone <add repository URL here>
+2. In your terminal type: npm install
+3. Use the full URL to /public/index.html and open it in your browser
+4. Ensure the connection /public/js/user.js matches your locally hosted database
 
 ### How to use the API
 The API features full CRUD functionality.
