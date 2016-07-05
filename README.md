@@ -4,7 +4,7 @@ Meet and collaborate with fellow General Assembly students on building startups,
 
 ![GA Connect](readme assets/screenshot.png)
 
-##### [Installation](## Installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](## Challenges & Reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
+##### [Installation](##Installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](##Challenges & Reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
 
 ## Installation
 You can find a working demo of GA Connect on [github](https://stephenkoo.github.io/GA-Connect-Front/public/index.html).
