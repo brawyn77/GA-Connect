@@ -1,6 +1,8 @@
-![GA Connect](media/promo.png)
+# GA-CONNECT
 
 Meet and collaborate with fellow General Assembly students on building startups, projects for your portfolio, or simply to networking by utilising a student GA Connect directory which outlines skills, courses, and goals.
+
+![GA Connect](readme assets/screenshot.png)
 
 ##### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](#current-challenges) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
 
