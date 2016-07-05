@@ -109,10 +109,10 @@ module.exports.allProfiles = function(req, res){
     //     res.status(401).json({message: "Unauthorised user"});
     // } else {
 
-		var populateQuery = [{path:'../models/user', select:'user'}, {path:'./models/userProfile', select:'picture'}];
+		// var populateQuery = [{path:'../models/user', select:'user'}, {path:'./models/userProfile', select:'picture'}];
 
         UserProfile.find({})
-        .populate(populateQuery)
+        .populate('user')
         .exec(function(err, profiles){
             if (err){
                 res.json({message: "No profile found"});
