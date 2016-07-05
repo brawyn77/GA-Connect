@@ -26,7 +26,7 @@ var app = express(); // define our app using express
 
 
 
-mongoose.connect('mongodb://localhost/test'); // connect to our database
+mongoose.connect('mongodb://heroku_bwxbxl4b:n0m0Rem3aT@ds011745.mlab.com:11745/heroku_bwxbxl4b'); // connect to our database
 // app.set("superSecret", config.secret); // secret variable, might be redundant
 
 app.set('views', path.join(__dirname, '/views'));
