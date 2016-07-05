@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
 var gracefulShutdown;
-var dbURI = "mongodb://heroku_bwxbxl4b:n0m0Rem3aT@ds011745.mlab.com:11745/heroku_bwxbxl4b";
+var dbURI = "mongodb://hero08:n0m0Rem3aT@ds011745.mlab.com:11745/heroku_bwxbxl4b";
 // if (process.env.NODE_ENV === "production") {
 // 	dbURI = process.env.MONGOLAB_URI;
 // }
 
-mongoose.connect(dbURI);
+// mongoose.connect(dbURI);
 
 // CONNECTION EVENTS
 mongoose.connection.on("connected", function() {
