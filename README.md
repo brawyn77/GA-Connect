@@ -94,7 +94,7 @@ Using user stories to flesh out the requirements for each persona.
 ![Stephen Draft](readme assets/Wireframes/Draft 1 Stephen/3 Profile page.jpg)
 
 #### Profile edit pages
-![Stephen Draft](readme assets/Wireframes/Draft 1 Stephen/4 Profile edit page.jpg)
+![Stephen Draft](readme assets/Wireframes/Draft 1 Stephen/4 Profile edit pages.jpg)
 
 *- Sketched by Stephen.*
 
