@@ -4,11 +4,56 @@ Meet and collaborate with fellow General Assembly students on building startups,
 
 ![GA Connect](readme assets/screenshot.png)
 
-##### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](# challenges-&-reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
+##### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-and-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](# challenges-and-reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
 
 ## Installation
 You can find a working demo of GA Connect on [github](https://stephenkoo.github.io/GA-Connect-Front/public/index.html).
-The backend is hosted on [Heroku](https://historic-kings-canyon-91668.herokuapp.com/api/profiles).
+The backend is hosted on [Heroku](https://historic-kings-canyon-91668.herokuapp.com/api).
+
+### How to use the API
+The API features full CRUD functionality.
+
+To register, submit a POST request to https://historic-kings-canyon-91668.herokuapp.com/api/register with the following fields:
+
+* firstName
+* lastName
+* email
+* password
+
+A JSON web token will be rendering on screen. This needs to be included in your header when submitting further requests to update your own profile.
+
+To create your own profile, submit a POST request to https://historic-kings-canyon-91668.herokuapp.com/api/profile with the following fields:
+
+* profileActive - Boolean
+* headline - String
+* elevatorPitch - String
+* goals - String
+* skills - [Strings inside an array]
+* portfolioURL - String
+* linkedinURL - String
+* country - String
+* city - String
+* course - [courseName - String, courseStart - Date, courseEnd - Date]
+
+To update the profile, submit a PUT request to https://historic-kings-canyon-91668.herokuapp.com/api/profile with the fields you wish to change.
+
+To view your own profile, submit a GET request to https://historic-kings-canyon-91668.herokuapp.com/api/profile
+
+To delete your own profile, submit a DELETE request to https://historic-kings-canyon-91668.herokuapp.com/api/profile
+
+To view your User page, submit a GET request to https://historic-kings-canyon-91668.herokuapp.com/api/user
+
+All users can be retrieved by submitting a GET request (no JSON web token required) to https://historic-kings-canyon-91668.herokuapp.com/api/users
+
+All profiles can be retrieved by submitting a GET request (no JSON web token required) to https://historic-kings-canyon-91668.herokuapp.com/api/profiles
+
+You can also perform a search to view all profiles that contain a specific city, course, goal or skill. These can be retrieved by submitting a GET request to the following URLS:
+
+* https://historic-kings-canyon-91668.herokuapp.com/api/search/city/:city
+* https://historic-kings-canyon-91668.herokuapp.com/api/search/course/:course
+* https://historic-kings-canyon-91668.herokuapp.com/api/search/goals/:goal
+* https://historic-kings-canyon-91668.herokuapp.com/api/search/skills/:skill
+
 
 ## Our Approach
 We first identified that a personal pain that we felt as GA students that we wanted to solve was the limited opportunities we had to collaborate and get to know other GA students, particular UX design students.
@@ -19,16 +64,16 @@ Utilising a three man team we split up the work but assisted each other when req
 
 ### How we divided labour
 Brad built the API (utilising online tutorials and class material) and had trouble with the routes mainly due to finding the right syntax (which was solved by searching Google, talking to classmates and the instructors).
-Luke assisted with the routes and developed the authentication.
+Luke assisted with the routes and developed the authentication for user registration, logins and JSON web tokens.
 Stephen built a static client and then focussed on working with Luke to utilise Backbone to improve the user experience.
-Brad assisted the team in finding a suitable script to access the API (obtained from a Google search)from the front end but could not get it to work with authentication switched on. He then passed this on to Luke who solved this problem.
-We had working parts but needed to put it all together so Luke and Stephen worked on the backbone while Brad continued to work on integrating the pictures into the profiles. Brad tried to seed the data but was unsuccessful so he used the mongoimport commands to insert the GridFs files into mongo and then linked them to the userProfile model using db.userProfile.update.
+Brad assisted the team in finding a suitable script to access the API (obtained from a Google search) from the front end but could not get it to work with authentication switched on. He then passed this on to Luke who solved this problem by reducing the authenciation requirements on most API routes.
+We had working parts but needed to put it all together so Luke and Stephen worked on the Backbone while Brad continued to work on integrating the pictures into the profiles. Brad tried to seed the data but was unsuccessful so he used the mongoimport commands to insert the GridFs files into mongo and then linked them to the userProfile model using db.userProfile.update.
 
-## Personas & user stories
+## Personas and user stories
 We created 3 personas to flesh out the specific needs for each type of user GA Connect is intended to serve.
 
-- **Mark the networker:** Mark is a Product Management student who just sarted building his startup. He"d like to network with other entrepreneurial GA students so they can share their journey together and provide each other helpful advice.
-- **Bill the job hunter:** Bill is a Web Development Immersive student who has almost completed the course who wants to get a job as a junior web developer in the startup Orange Bubble. He"d like to continue meeting up with other WDI students after the course to work together on building their portfolios, on their CVs, practice interviews and keep each other accountable for attending networking events.
+- **Mark the networker:** Mark is a Product Management student who just started building his startup. He'd like to network with other entrepreneurial GA students so they can share their journey together and provide each other helpful advice.
+- **Bill the job hunter:** Bill is a Web Development Immersive student who has almost completed the course who wants to get a job as a junior web developer in the startup Orange Bubble. He'd like to continue meeting up with other WDI students after the course to work together on building their portfolios, on their CVs, practice interviews and keep each other accountable for attending networking events.
 - **Adam the startup builder:** Adam is a Web Development Immersive student looking for one UX Design Immersive student and one Product Management student to build a startup together.
 - **Emily the administrator:** Emily is a GA administrator responsible for the management of students and classes. She wants to encourage GA students across courses to get to know each other better.
 
@@ -89,8 +134,8 @@ Using user stories to flesh out the requirements for each persona.
 
 *- Sketched by Luke.*
 
-## Working functionality & future functions to implement
-We focused our time building a full-fledged backend which generates an API from database an authentication system for future account creation so users can edit their own profiles.
+## Working functionality and future functions to implement
+We focused our time building a full-fledged backend API with a database authentication system for future account creation so users can edit their own profiles.
 
 On the front-end, we successfully used Backbone.js to develop a single page application which reads our API to render elements on the page such as user profile cards and user profile pages.
 
@@ -104,17 +149,13 @@ Other functions we worked on but have not yet completed include:
 ## Challenges & Reflection
 
 ### Brad
-- Building the back end took too long
-- That left us with insufficient time to get the front end working with the API
-- Images in MongoDB
-- Local storage of web tokens
-- Search/GREP function with multidimensional arrays
-
 Working together was good as we set clearly defined roles and helped one another when it was required.
 As usual we had more grandiose plans than what we could deliver in the time allocated.
 
 ### Luke
 Generating web tokens that are applicable to a particular user was tricky. I solved it by attaching the user id with a token during its creation. That way, the middleware authentication was able to identify the user using the token that was issued.
+
+We spent the majority of our allocated time building the backend API in tandem with a front-end design that only utilised fake data. Given how long it took to build the backend API with full CRUD functionality, we decided to work on the front end one step at a time. At this stage, this means READING from the API only. The next step would be filtering the READ data, then being able to CREATE, UPDATE and DELETE, in tandem with a user authentication system.
 
 ### Stephen
 Stephen: The biggest challenges for me were building a working Backbone framework which extracted data from the API correctly. Lots of time reviewing router.js, cardView.js and indexView.js to troubleshoot points which wasn't working correctly.
