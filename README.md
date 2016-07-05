@@ -4,7 +4,7 @@ Meet and collaborate with fellow General Assembly students on building startups,
 
 ![GA Connect](readme assets/screenshot.png)
 
-##### [Installation](##Installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](##Challenges & Reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
+##### [Installation](#installation) | [Our Approach](#our-approach) | [Personas & User Stories](#personas-&-user-stories) | [Wireframes](#wireframes) | [Past & Future Challenges](# challenges-&-reflection) | [Technologies Used](#technologies-used) | [Contributors](#contributors) | [Licence](#licence)
 
 ## Installation
 You can find a working demo of GA Connect on [github](https://stephenkoo.github.io/GA-Connect-Front/public/index.html).
@@ -17,7 +17,7 @@ We then discussed potential technological solutions, and came up with the idea o
 
 Utilising a three man team we split up the work but assisted each other when required. Brad set up the API and the GridFS to store the profile pictures and assisted with the mockups. Stephen worked on the client interface and assisted with the mockups. Luke managed the authentication and provided significant assistance to Stephen and Brad.
 
-## How we divided labour
+### How we divided labour
 Brad built the API (utilising online tutorials and class material) and had trouble with the routes mainly due to finding the right syntax (which was solved by searching Google, talking to classmates and the instructors).
 Luke assisted with the routes and developed the authentication.
 Stephen built a static client and then focussed on working with Luke to utilise Backbone to improve the user experience.
